@@ -563,6 +563,37 @@ Item {
                 onClicked:          kmlOrSHPLoadDialog.openForLoad()
                 visible:            !mapPolygon.traceMode
             }
+
+            QGCButton {
+
+
+
+
+                           iconSource: "/qmlimages/cube-transparent.svg"
+
+                           text: qsTr("        AR Mode")
+                           iconLeft: true
+                           onClicked:          {
+                               var emptyWindow = Qt.createQmlObject('import QtQuick 2.15;
+                               import QtQuick.Controls 2.15; import QtQuick.Layouts 1.15;
+                               import QtQuick.Dialogs 1.3;
+                               ApplicationWindow { visible: true; width: 400; height: 300; title: "Empty Window";
+                               Rectangle { anchors.fill: parent;
+                                Button { anchors.centerIn: parent;
+                                background: Rectangle { color: "transparent" }
+                                Label {
+                                           text: "Close";
+                                           color: "blue"; // Set text color to blue
+                                           font.pixelSize: 14
+                                       }
+                                onClicked: close();
+                               } } }', Qt.application);
+                               emptyWindow.show();
+                           }
+                           visible:            !mapPolygon.traceMode
+                       }
+
+
         }
     }
 

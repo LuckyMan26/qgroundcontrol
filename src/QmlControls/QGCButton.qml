@@ -74,6 +74,8 @@ Button {
             color:                  _showHighlight ?
                                         qgcPal.buttonHighlightText :
                                         (primary ? qgcPal.primaryButtonText : qgcPal.buttonText)
+            anchors.fill: parent
+
         }
     }
 }
